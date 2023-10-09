@@ -17,7 +17,8 @@ function createGrid(gridSize){
             gridBox.style.height = `${width}px`;
             //event added for color change while hover
             gridBox.addEventListener('mouseenter',()=>{
-                gridBox.style.backgroundColor = 'black';
+                let color ="rgba(40, 50, 70,0.7)";
+                gridBox.style.backgroundColor = color;
             });
             rowGrid.appendChild(gridBox);
         }
@@ -25,7 +26,7 @@ function createGrid(gridSize){
     }
     container.appendChild(wrapper);
 };
-
+createGrid(16);
 
 reset.addEventListener('click',()=>{
     let input =document.querySelector('.input');
@@ -44,4 +45,4 @@ reset.addEventListener('click',()=>{
         wrapper.remove();
         createGrid(userSize);
     }
-})
+});
