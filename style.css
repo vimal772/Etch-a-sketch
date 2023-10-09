@@ -4,16 +4,18 @@
     box-sizing: border-box;
 }
 
+
 .container{
+    margin: 0 auto;
     border: 1px solid lightpink;
     height: 960px;
     width: 960px;
-    display: flex;
+    /* display: flex; */
 } 
 .grid-row{
-    /* display: flex; */
+    display: flex;
 }
 .grid-box{
     border: 1px solid black;
-    background-color: yellow;
+    background-color: #f8ffff;
 }
