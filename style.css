@@ -3,3 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container{
+    border: 1px solid lightpink;
+    height: 960px;
+    width: 960px;
+    display: flex;
+} 
+.grid-row{
+    /* display: flex; */
+}
+.grid-box{
+    border: 1px solid black;
+    background-color: yellow;
+}
