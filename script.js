@@ -1,6 +1,8 @@
 console.log("connected");
 const container = document.querySelector('.container');
 const reset = document.querySelector('.reset');
+const random = document.querySelector('.random');
+let showRandom = 0;
 
 function createGrid(gridSize){
     const wrapper = document.createElement('div');
@@ -17,7 +19,7 @@ function createGrid(gridSize){
             gridBox.style.height = `${width}px`;
             //event added for color change while hover
             gridBox.addEventListener('mouseenter',()=>{
-                let color ="rgba(40, 50, 70,0.7)";
+                let color = getRandomColor();
                 gridBox.style.backgroundColor = color;
             });
             rowGrid.appendChild(gridBox);
@@ -31,6 +33,7 @@ createGrid(16);
 reset.addEventListener('click',()=>{
     let input =document.querySelector('.input');
     let userSize = Number(input.value);
+    showRandom = 0;
 
     while(userSize>100){
         alert("Give the value less than 100");
@@ -46,3 +49,18 @@ reset.addEventListener('click',()=>{
         createGrid(userSize);
     }
 });
+random.addEventListener('click',() =>{
+    showRandom = 1;
+});
+function getRandomColor(){
+    if(showRandom === 1){
+        const r = Math.floor(Math.random()*256);
+        const g = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256); 
+
+        return `rgb(${r},${g},${b})`;
+    }else{
+        return "black";
+    }
+
+};
