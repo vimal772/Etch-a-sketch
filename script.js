@@ -31,6 +31,7 @@ function createGrid(gridSize){
 createGrid(16);
 
 reset.addEventListener('click',()=>{
+    reset.classList.add('active');
     let input =document.querySelector('.input');
     let userSize = Number(input.value);
     showRandom = 0;
@@ -51,15 +52,18 @@ reset.addEventListener('click',()=>{
 });
 random.addEventListener('click',() =>{
     showRandom = 1;
+    random.classList.add('active');
 });
 function getRandomColor(){
     if(showRandom === 1){
+        reset.classList.remove('active');
         const r = Math.floor(Math.random()*256);
         const g = Math.floor(Math.random()*256);
         const b = Math.floor(Math.random()*256); 
 
         return `rgb(${r},${g},${b})`;
     }else{
+        random.classList.remove('active');
         return "black";
     }
 
