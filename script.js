@@ -3,6 +3,8 @@ const container = document.querySelector('.container');
 const reset = document.querySelector('.reset');
 const random = document.querySelector('.random');
 let showRandom = 0;
+let addBtn = 0;
+const addOpacity = document.querySelector('.add');
 
 function createGrid(gridSize){
     const wrapper = document.createElement('div');
@@ -19,8 +21,15 @@ function createGrid(gridSize){
             gridBox.style.height = `${width}px`;
             //event added for color change while hover
             gridBox.addEventListener('mouseenter',()=>{
-                let color = getRandomColor();
-                gridBox.style.backgroundColor = color;
+                if(addBtn === 1){
+                    const currentOpacity = Number(gridBox.style.opacity);
+                    let color = getRandomColor();
+                    gridBox.style.backgroundColor = color;
+                        gridBox.style.opacity = currentOpacity+.1;
+                }else{
+                    let color = getRandomColor();
+                    gridBox.style.backgroundColor = color;
+                }
             });
             rowGrid.appendChild(gridBox);
         }
@@ -35,6 +44,7 @@ reset.addEventListener('click',()=>{
     let input =document.querySelector('.input');
     let userSize = Number(input.value);
     showRandom = 0;
+    addBtn = 0;
 
     while(userSize>100){
         alert("Give the value less than 100");
@@ -68,3 +78,13 @@ function getRandomColor(){
     }
 
 };
+
+addOpacity.addEventListener('click',()=> {
+    if(addBtn === 0){
+        addBtn = 1;
+        addOpacity.classList.add('active');
+    }else{
+        addBtn = 0;
+        addOpacity.classList.remove('active');
+    }
+});
